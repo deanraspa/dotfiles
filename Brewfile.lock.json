@@ -1,0 +1,125 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "43668b6a7ce07cb5ba0936fe138185eda271894b"
+      },
+      "homebrew/core": {
+        "revision": "be556692357c86cda236c52cbbb2214759486f2e"
+      }
+    },
+    "brew": {
+      "gcc": {
+        "version": "5.5.0_7",
+        "bottle": {
+          "rebuild": 1,
+          "cellar": ":any",
+          "prefix": "/home/linuxbrew/.linuxbrew",
+          "root_url": "https://linuxbrew.bintray.com/bottles",
+          "files": {
+            "arm64_big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/gcc-5.5.0_7.arm64_big_sur.bottle.1.tar.gz",
+              "sha256": "b4b7c67dd8092a1c8f8da6c90bdc561507bd800d1f115746a10d2fd4bfdc6e28"
+            },
+            "big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/gcc-5.5.0_7.big_sur.bottle.1.tar.gz",
+              "sha256": "f02c7193b10ea81529c0246bc196b725b1072e92d383e099d78c22956d29347e"
+            },
+            "catalina": {
+              "url": "https://linuxbrew.bintray.com/bottles/gcc-5.5.0_7.catalina.bottle.1.tar.gz",
+              "sha256": "83c9ae812879188b9b5e772092b1841a57a2c838927f43376b1f9e715d331a48"
+            },
+            "mojave": {
+              "url": "https://linuxbrew.bintray.com/bottles/gcc-5.5.0_7.mojave.bottle.1.tar.gz",
+              "sha256": "fb30e8f0df703e30a0be874a5f3ec4567d67ad42337cb76451199dccdd2de530"
+            },
+            "x86_64_linux": {
+              "url": "https://linuxbrew.bintray.com/bottles/gcc-5.5.0_7.x86_64_linux.bottle.1.tar.gz",
+              "sha256": "8bde377e3d9ca28bfa842583accbacfa912666e71ffb5de7cb401663ca894c25"
+            }
+          }
+        }
+      },
+      "gh": {
+        "version": "1.5.0",
+        "bottle": {
+          "rebuild": 1,
+          "cellar": ":any_skip_relocation",
+          "prefix": "/home/linuxbrew/.linuxbrew",
+          "root_url": "https://linuxbrew.bintray.com/bottles",
+          "files": {
+            "arm64_big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/gh-1.5.0.arm64_big_sur.bottle.1.tar.gz",
+              "sha256": "41dfc99e72e47bb0a96fae9d7694fd081f309d8cadc1a30f51e38e8ad2ea5d5a"
+            },
+            "big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/gh-1.5.0.big_sur.bottle.1.tar.gz",
+              "sha256": "b7cc2f2572ca67b64313f751e096180f938640c83e3b894d6b8a7decf717d552"
+            },
+            "catalina": {
+              "url": "https://linuxbrew.bintray.com/bottles/gh-1.5.0.catalina.bottle.1.tar.gz",
+              "sha256": "f57eae8d861c55b40c2b613b45b1a6d0e17987cd995d7b851f1ca9ca8809d216"
+            },
+            "mojave": {
+              "url": "https://linuxbrew.bintray.com/bottles/gh-1.5.0.mojave.bottle.1.tar.gz",
+              "sha256": "ebd7caca02b77e13437f4b9835206e8398095423a33c304cb55d2e90be30fd61"
+            },
+            "x86_64_linux": {
+              "url": "https://linuxbrew.bintray.com/bottles/gh-1.5.0.x86_64_linux.bottle.1.tar.gz",
+              "sha256": "07402c30ccb5f783fc86ef363a39036e69be92a67a3f0c88b46f627c85934f7e"
+            }
+          }
+        }
+      },
+      "nvm": {
+        "version": "0.37.2",
+        "bottle": false
+      },
+      "zsh": {
+        "version": "5.8_1",
+        "bottle": {
+          "rebuild": 0,
+          "cellar": "/home/linuxbrew/.linuxbrew/Cellar",
+          "prefix": "/home/linuxbrew/.linuxbrew",
+          "root_url": "https://linuxbrew.bintray.com/bottles",
+          "files": {
+            "arm64_big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
+            },
+            "big_sur": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.big_sur.bottle.tar.gz",
+              "sha256": "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"
+            },
+            "catalina": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.catalina.bottle.tar.gz",
+              "sha256": "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5"
+            },
+            "mojave": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.mojave.bottle.tar.gz",
+              "sha256": "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46"
+            },
+            "high_sierra": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.high_sierra.bottle.tar.gz",
+              "sha256": "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f"
+            },
+            "x86_64_linux": {
+              "url": "https://linuxbrew.bintray.com/bottles/zsh-5.8_1.x86_64_linux.bottle.tar.gz",
+              "sha256": "dd9af50837c589551654ab4677b054978dcdf332b6a17c23caab7070ca58a6ae"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": {
+    "linux": {
+      "Ubuntu 20.04.2 LTS (focal)": {
+        "HOMEBREW_VERSION": "3.0.1",
+        "HOMEBREW_PREFIX": "/home/linuxbrew/.linuxbrew",
+        "Homebrew/linuxbrew-core": "be556692357c86cda236c52cbbb2214759486f2e",
+        "GCC": "5.5.0"
+      }
+    }
+  }
+}
