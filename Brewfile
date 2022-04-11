@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 brew "bazelisk"
+brew "buildifier"
 brew "gcc"
 brew "gh"
 brew "gnupg"
