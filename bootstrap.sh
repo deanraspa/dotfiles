@@ -49,7 +49,7 @@ ln -sf $(pwd)/.p10k.zsh $HOME/.p10k.zsh
 ln -sf $(pwd)/.kubectl_aliases $HOME/.kubectl_aliases
 
 # Install or update Homebrew
-which brew &>/dev/nulld
+which brew &>/dev/null
 if [[ $? != 0 ]] ; then
     # Install Homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -75,7 +75,7 @@ else
     echo "ZSH found in /etc/shells"
 fi
 
-if [[ $(grep ^$(id -un): /etc/passwd | cut -d : -f 7-) != $(which zsh) ]] ; then
+if [[ $(grep "^$(id -un):" /etc/passwd | cut -d : -f 7-) != $(which zsh) ]] ; then
     echo "Enter your password to change default shell to $(which zsh)"
     chsh -s $(which zsh)
 else
@@ -96,29 +96,4 @@ if [[ ! -d "$HOME/.nvm" ]] ; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh
 else
     echo "NVM already installed"
-fi
-
-# Install GO 1.17.2 if not present
-if [[ ! -d "/usr/local/go" ]] ; then 
-    GOVERSION=go1.17.2
-    [[ $OS = "Linux" ]] && GOVERSION=$GOVERSION.linux
-    [[ $OS = "darwin" ]] && GOVERSION=$GOVERSION.darwin
-    [[ $ARCH = "x86_64" ]] && GOVERSION=$GOVERSION-amd64
-    [[ $ARCH = "ARM64" ]] && GOVERSION=$GOVERSION-arm64
-    GOVERSION=$GOVERSION.tar.gz
-    echo "golang version identified as $GOVERSION"
-
-    wget -c https://storage.googleapis.com/golang/$GOVERSION
-    sudo tar -C /usr/local -xvf $GOVERSION
-    rm -f $GOVERSION
-else
-    echo "GO 1.17.2 already installed"
-fi
-
-# Ensure Go folders are present
-if [[ ! -d "$HOME/golibs/bin" ]];  then
-    #the libraries are stored within this directory
-    mkdir -p ~/golibs/{bin,src,pkg}
-    #the projects are stored within this directory
-    mkdir -p ~/goprojects/{bin,src,pkg}
 fi
