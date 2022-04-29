@@ -41,12 +41,19 @@ fi
 
 # Basic git setup
 git config --global user.name "Dean Raspa"
-git config --global user.email "draspa@gmail.com"
+shopt -s nocasematch; if [[ "darwin" =~ "$OS" ]]; then  
+    echo "Setting git user.email to draspa@ebsco.com"
+    git config --global user.email "draspa@ebsco.com"
+else 
+    echo "Setting git user.email to draspa@gmail.com"
+    git config --global user.email "draspa@gmail.com"
+fi
 
 # Symlink .zshrc replacing any symlink or file already there
-ln -sf $(pwd)/.zshrc $HOME/.zshrc
-ln -sf $(pwd)/.p10k.zsh $HOME/.p10k.zsh
-ln -sf $(pwd)/.kubectl_aliases $HOME/.kubectl_aliases
+ln -sfv $(pwd)/.zshrc $HOME/.zshrc
+ln -sfv $(pwd)/.zprofile $HOME/.zprofile
+ln -sfv $(pwd)/.p10k.zsh $HOME/.p10k.zsh
+ln -sfv $(pwd)/.kubectl_aliases $HOME/.kubectl_aliases
 
 # Install or update Homebrew
 which brew &>/dev/null
@@ -75,11 +82,19 @@ else
     echo "ZSH found in /etc/shells"
 fi
 
-if [[ $(grep "^$(id -un):" /etc/passwd | cut -d : -f 7-) != $(which zsh) ]] ; then
+shopt -s nocasematch; if [[ "darwin" =~ "$OS" ]]; then
+    DEF_SHELL=$(dscl . -read ~/ UserShell)
+else 
+    DEF_SHELL=$(grep "^$(id -un):" /etc/passwd | cut -d : -f 7-)
+fi
+echo $DEF_SHELL
+
+
+if [[ $DEF_SHELL =~ "/bin/zsh" ]] ; then
+    echo "Your default shell is already $(which zsh)"
+else
     echo "Enter your password to change default shell to $(which zsh)"
     chsh -s $(which zsh)
-else
-    echo "Your default shell is already $(which zsh)"
 fi
 
 # Install zim
