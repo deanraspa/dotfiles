@@ -160,6 +160,10 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+# source alias files
+source ~/.aws_ebsco_aliases
+source ~/.kubectl_aliases
+
 # Auto start ssh-agent
 env=~/.ssh/agent.env
 
@@ -182,3 +186,4 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
+eval "$(jenv init -)"

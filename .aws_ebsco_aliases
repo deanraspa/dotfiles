@@ -1,0 +1,11 @@
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_DEFAULT_OUTPUT=table
+
+# Aliases
+alias aws-lz-ehost-dqa-app="export AWS_PROFILE=eis-lz-ehost-devqa-app && aws sso login"
+alias aws-lz-ehost-int-app="export AWS_PROFILE=profile eis-lz-ehost-integration-app && aws sso login"
+alias aws-lz-ehost-live-app="export AWS_PROFILE=profile eis-lz-ehost-live-app && aws sso login"
+alias aws-lz-sandbox-dqa="export AWS_PROFILE=eis-lz-sandbox-devqa && aws sso login"
+alias aws-delivery-dqa="export AWS_PROFILE=delivery-devqa && aws sso login"
+alias aws-delivery-int="export AWS_PROFILE=delivery-int && aws sso login"
+alias aws-delivery-live="export AWS_PROFILE=delivery-live && aws sso login"

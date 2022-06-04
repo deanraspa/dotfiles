@@ -40,6 +40,7 @@ if [[ $OS == "Ubuntu" ]]; then
 fi
 
 # Basic git setup
+git config --global core.editor "code --wait"
 git config --global user.name "Dean Raspa"
 shopt -s nocasematch; if [[ "darwin" =~ "$OS" ]]; then  
     echo "Setting git user.email to draspa@ebsco.com"
@@ -54,6 +55,7 @@ ln -sfv $(pwd)/.zshrc $HOME/.zshrc
 ln -sfv $(pwd)/.zprofile $HOME/.zprofile
 ln -sfv $(pwd)/.p10k.zsh $HOME/.p10k.zsh
 ln -sfv $(pwd)/.kubectl_aliases $HOME/.kubectl_aliases
+ln -sfv $(pwd)/.aws_ebsco_aliases $HOME/.aws_ebsco_aliases
 
 # Install or update Homebrew
 which brew &>/dev/null
