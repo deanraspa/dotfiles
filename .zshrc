@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -164,26 +165,4 @@ alias ..5="cd ../../../../.."
 source ~/.aws_ebsco_aliases
 source ~/.kubectl_aliases
 
-# Auto start ssh-agent
-env=~/.ssh/agent.env
-
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-
-agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
-
-agent_load_env
-
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
-
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    agent_start
-    ssh-add
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-    ssh-add
-fi
-
-unset env
 eval "$(jenv init -)"
