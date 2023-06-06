@@ -1,3 +1,6 @@
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Ensure that GPG is correctly confifgured
 GPG_TTY=$(tty)
 export GPG_TTY
