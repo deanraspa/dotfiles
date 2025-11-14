@@ -3,9 +3,21 @@ export AWS_DEFAULT_OUTPUT=table
 
 # Aliases
 alias aws-lz-ehost-dqa-app="export AWS_PROFILE=eis-lz-ehost-devqa-app && aws sso login"
+alias aws-lz-ehost-dqa-ro="export AWS_PROFILE=eis-lz-ehost-devqa-ro && aws sso login"
+alias aws-lz-ehost-dqa-dev="export AWS_PROFILE=eis-lz-ehost-devqa-dev && aws sso login"
 alias aws-lz-ehost-int-app="export AWS_PROFILE=eis-lz-ehost-integration-app && aws sso login"
 alias aws-lz-ehost-live-app="export AWS_PROFILE=eis-lz-ehost-live-app && aws sso login"
+alias aws-lz-ehost-live-ro="export AWS_PROFILE=eis-lz-ehost-live-ro && aws sso login"
+alias aws-lz-ehost-dqa-rep="export AWS_PROFILE=eis-lz-ehost-devqa-reportingrds && aws sso login"
+alias aws-lz-ehost-live-rep="export AWS_PROFILE=eis-lz-ehost-live-reportingrds && aws sso login"
 alias aws-lz-sandbox-dqa="export AWS_PROFILE=eis-lz-sandbox-devqa && aws sso login"
 alias aws-delivery-dqa="export AWS_PROFILE=delivery-devqa && aws sso login"
 alias aws-delivery-int="export AWS_PROFILE=delivery-int && aws sso login"
 alias aws-delivery-live="export AWS_PROFILE=delivery-live && aws sso login"
+
+alias aws-ez-proxy-test-dev-ezpd="export AWS_PROFILE=ez-proxy-test-dev-ezpd && aws sso login"
+
+# EKS config setup
+alias eks-list-clusters="aws eks list-clusters"
+alias eks-f1-lz-ehost-live-ro="aws-lz-ehost-live-ro && aws eks update-kubeconfig --name eks-ehost-live-f1 --alias live-f1"
+alias eks-f1-lz-ehost-dqa-ro="aws-lz-ehost-dqa-ro && aws eks update-kubeconfig --name eks-ehost-dev-f1 --alias dev-f1"

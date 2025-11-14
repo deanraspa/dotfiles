@@ -166,3 +166,18 @@ source ~/.aws_ebsco_aliases
 source ~/.kubectl_aliases
 
 eval "$(jenv init -)"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/draspa/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
+
+# Direnv hook setup
+eval "$(direnv hook zsh)"
+# Created by `pipx` on 2024-01-25 21:22:56
+export PATH="$PATH:/Users/draspa/.local/bin"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
