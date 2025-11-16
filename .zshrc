@@ -167,4 +167,12 @@ complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
 
 export PATH="${HOME}/.local/bin:$PATH"
 
+# Start ssh-agent if not already running
+if ! pgrep ssh-agent &>/dev/null ; then
+    eval "$(ssh-agent -s)"
+    # Optionally, add your default keys automatically
+    # ssh-add ~/.ssh/id_rsa
+    ssh-add ~/.ssh/id_ed25519
+fi
+
 eval "$(oh-my-posh init zsh --config '~/.omp-theme.yaml')"
