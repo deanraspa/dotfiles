@@ -1,11 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -142,14 +134,9 @@ SAVEHIST=1000000000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
 
 # cd aliases
 alias ..="cd .."
@@ -162,22 +149,22 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
 # source alias files
-source ~/.aws_ebsco_aliases
+test -e "${HOME}/.aws_ebsco_aliases" && source ~/.aws_ebsco_aliases
 source ~/.kubectl_aliases
 
 eval "$(jenv init -)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/draspa/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
 
 # Direnv hook setup
 eval "$(direnv hook zsh)"
-# Created by `pipx` on 2024-01-25 21:22:56
-export PATH="$PATH:/Users/draspa/.local/bin"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
+
+export PATH="${HOME}/.local/bin:$PATH"
+
+eval "$(oh-my-posh init zsh --config '~/.omp-theme.yaml')"

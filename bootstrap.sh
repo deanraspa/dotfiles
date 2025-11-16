@@ -1,5 +1,23 @@
 #!/bin/bash
 
+while getopts ":t:h" opt; do
+  case $opt in
+	t)
+  	TARGET="$OPTARG"
+  	echo "Target: $TARGET"
+  	;;
+	h)
+  	echo "Help: This script accepts -t <Target> and -h for help."
+  	;;
+	\?)
+  	echo "Invalid option: -$OPTARG"
+  	;;
+	:)
+  	echo "Option -$OPTARG requires an argument."
+  	;;
+  esac
+done
+
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
@@ -42,9 +60,11 @@ fi
 # Basic git setup
 git config --global core.editor "code --wait"
 git config --global user.name "Dean Raspa"
-shopt -s nocasematch; if [[ "darwin" =~ "$OS" ]]; then  
+shopt -s nocasematch; if [[ "work" = "$TARGET" ]]; then  
     echo "Setting git user.email to draspa@ebsco.com"
     git config --global user.email "draspa@ebsco.com"
+    # Symlink ebsco aws aliases
+    ln -sfv $(pwd)/.aws_ebsco_aliases $HOME/.aws_ebsco_aliases
 else 
     echo "Setting git user.email to draspa@gmail.com"
     git config --global user.email "draspa@gmail.com"
@@ -53,9 +73,8 @@ fi
 # Symlink .zshrc replacing any symlink or file already there
 ln -sfv $(pwd)/.zshrc $HOME/.zshrc
 ln -sfv $(pwd)/.zprofile $HOME/.zprofile
-ln -sfv $(pwd)/.p10k.zsh $HOME/.p10k.zsh
 ln -sfv $(pwd)/.kubectl_aliases $HOME/.kubectl_aliases
-ln -sfv $(pwd)/.aws_ebsco_aliases $HOME/.aws_ebsco_aliases
+ln -sfv $(pwd)/oh-my-posh-theme.yaml $HOME/.omp-theme.yaml
 
 # Install or update Homebrew
 which brew &>/dev/null
@@ -91,7 +110,6 @@ else
 fi
 echo $DEF_SHELL
 
-
 if [[ $DEF_SHELL =~ "/bin/zsh" ]] ; then
     echo "Your default shell is already $(which zsh)"
 else
@@ -113,4 +131,11 @@ if [[ ! -d "$HOME/.nvm" ]] ; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh
 else
     echo "NVM already installed"
+fi
+
+# Install or update Oh-my-posh
+shopt -s nocasematch; if [[ "darwin" =~ "$OS" ]]; then
+    brew install jandedobbeleer/oh-my-posh/oh-my-posh
+else 
+    curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
