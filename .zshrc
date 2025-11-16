@@ -175,4 +175,6 @@ if ! pgrep ssh-agent &>/dev/null ; then
     ssh-add ~/.ssh/id_ed25519
 fi
 
+eval `keychain --quiet --eval --agents ssh ~/.ssh/id_ed25519`
+
 eval "$(oh-my-posh init zsh --config '~/.omp-theme.yaml')"
