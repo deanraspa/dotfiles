@@ -165,16 +165,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
 
-export PATH="${HOME}/.local/bin:$PATH"
-
-# Start ssh-agent if not already running
-if ! pgrep ssh-agent &>/dev/null ; then
-    eval "$(ssh-agent -s)"
-    # Optionally, add your default keys automatically
-    # ssh-add ~/.ssh/id_rsa
-    ssh-add ~/.ssh/id_ed25519
-fi
-
-eval `keychain --quiet --eval --agents ssh ~/.ssh/id_ed25519`
+#eval `keychain --quiet --eval --agents ssh ~/.ssh/id_ed25519`
 
 eval "$(oh-my-posh init zsh --config '~/.omp-theme.yaml')"
